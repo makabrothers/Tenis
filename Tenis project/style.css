@@ -1,0 +1,451 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    color: #fff;
+}
+*::selection{
+    background-color: #fff;
+    color: #95C11E;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+    perspective: 800px;
+}
+
+body::-webkit-scrollbar{
+    display: block;
+    width: 8px;    background: linear-gradient(to right,#95C11E,#000);
+}
+body::-webkit-scrollbar-thumb{
+    background-color: #fff;
+    border-radius: 50px;
+}
+#cursor{
+    height: 20px;
+    width: 20px;
+    background-color: #95c11e;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 99;
+}
+#cursor-blur{
+    height: 200px;
+    width: 200px;
+    background-color: #b6f8019b;
+    border-radius: 50%;
+    position: fixed;
+    filter: blur(150px);
+    z-index: 9;
+}
+#nav{
+    height: 75px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 50px 110px;
+    gap: 50px;
+    position: fixed;
+}
+#nav img{
+    height: 70px;
+}
+#nav h4{
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+}
+#nav h4:hover{
+    color: #fff;
+
+}
+video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: fixed;
+    z-index: -1;
+}
+#main{
+    position: relative;
+    background-color: rgba(0, 0,0, 0.37);   
+}
+#page1{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    z-index: 10;
+}
+
+#page1 h1::before{
+    content: "EAT .DRINK. PLAY.";
+    position: absolute;
+    color: black;
+    top: 203px;
+    left: 255px;
+    -webkit-text-stroke: 1px #95c11e;
+    z-index: -1;
+}
+
+#page1 h1{
+    font-size: 85px;
+    font-weight: 900;
+}
+#page1 h2{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 25px;
+    font-weight: 900;
+}
+#page1 p{
+    font-size: 18px;
+    font-weight: 500;
+    width: 50%;
+}
+#page2{
+   
+    min-height: 100vh;
+    width: 100%;
+    z-index: 10;
+}
+
+#scroller::-webkit-scrollbar{
+    display: none;  
+}
+
+#scroller{
+    white-space: nowrap;
+    /* background-color: red; */
+    overflow-y: hidden;
+    overflow-x: auto;
+    position: relative;
+    z-index: 10;
+}
+#scroller h4{
+    display: inline-block;
+    font-size: 120px;
+    font-weight: 900;
+    font-family: "Robboto", sans-serif;
+    margin-right: 100px;
+    -webkit-text-stroke: 2px #95c11e;
+    color: transparent;
+    transition: all linear 0.5s;
+}
+#scroller h4:hover{
+    color: #95c11e;
+}
+#scroller-in{
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes scroll {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100% );
+    }
+}
+
+#about-us{
+    /* background-color: transparent; */
+    position: relative;
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    padding: 0 50px;
+    align-items: center;
+    justify-content: space-around;
+}
+#about-us img{
+    border-radius: 10px;
+    object-fit: cover;
+}
+#about-us-in{
+    width: 50%;
+    text-align: center;
+}
+#about-us-in h3{
+    font-size: 50px;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+#about-us-in p{
+    font-size: 15px;
+    line-height: 26px;   
+}
+
+#cards-container{
+    /* margin-top: 10%; */
+    margin-bottom: 5%;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    position: relative;
+    z-index: 10;
+    gap: 70px;
+}
+.card{
+    height: 80%;
+    width: 24%;
+    overflow: hidden;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    transition: all ease 0.6s;
+}
+.card:hover{
+    transform: rotate3d(-1,1,0,20deg);
+}
+
+#card1{
+    background-image: url(./home-toptracer.jpg);
+}
+#card2{
+    background-image: url(./hero-4.jpg);
+}
+#card3{
+    background-image: url(./home-lessons.jpg);
+}
+
+#overlay{
+    height: 100%;
+    width: 100%;
+    background-color: #95c11e;
+    padding: 30px ;
+    padding-top: 70px;
+    opacity: 0;
+    transition: all ease 0.6s;
+}
+.card:hover #overlay{
+    opacity: 1;
+}
+#overlay h4{
+    color: #000;
+    font-size: 25px;
+    white-space: nowrap;
+    margin-bottom: 20px;
+
+    text-transform: uppercase;
+    font-weight: 800;
+}
+#overlay p{
+    color: #000;
+    font-size: 18px;
+}
+
+#green-div{
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to left bottom, #2CA635,#AADC22);
+}
+#green-div h4{
+    color: #000;
+    width: 50%;
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 40px;
+    text-align: center;
+    text-transform: uppercase;
+}
+#green-div img{
+    height: 100%;
+    object-fit: cover;
+    width: 15%;
+}
+#page3{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+#page-pg1{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    text-align: center;
+}
+
+#pg1-img img{
+    width: 400px;
+    height: 400px;
+    background-position: center;
+    margin: 20%;
+    border-radius: 10px;
+    border: 1px solid #95c11e;
+    transition: all ease 0.9s;
+    scale: 1.1;
+} 
+#pg1-img img:hover{
+    transform: rotate3d(-1,1,0,20deg);
+    scale: 1;
+}  
+#pg-head{
+    width: 50%;
+}
+#pg-head h1{
+    font-size: 50px;
+}
+
+#pg-head p{
+    font-size: 20px;
+    padding-top: 2%;
+    line-height: 100px;
+    line-height: 30px;
+}
+
+#pg-head a{
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+    border: 2px solid #95c11e;
+    font-weight: 800;
+    border-radius: 30px;
+}
+#pg-head a:hover{
+    background-color: #95c11e;
+    color: #000;
+}
+
+#page-pg2{
+    background-color: #000;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#page-pg2>p{
+    font-size: 25px;
+    font-weight: 700;
+    width: 55%;
+    text-align: center;
+    align-items: center;
+    line-height: 45px;
+}
+
+#page-pg2 img{
+    position: absolute;
+}
+#page-pg2 #colon1{
+    left: 15%;
+    top: 58%;
+}
+#page-pg2 #colon2{
+    bottom: 11%;
+    right: 20%;
+}
+
+#page4{
+    width: 100%;
+    height: 50vh;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    text-transform: uppercase;
+    position: relative;
+}
+.elem{
+    height: 70%;
+    width: 26%;
+    overflow: hidden;
+    border-radius: 20px;
+    position: relative;
+}
+.elem h2{
+    height: 100%;
+    width: 100%;
+    background-color: #95C11E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    color: #000;
+    font-weight: 900;
+    transition: all ease 0.9s;
+    position: absolute;
+    z-index: 10;
+}
+.elem img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    scale: 1.1;
+    transition: all ease 0.9s;
+}
+.elem:hover h2{
+    color:white;
+    background-color: transparent;
+}
+.elem:hover img{
+    scale: 1;
+}
+
+#page4 h1{
+    font-size: 70px;
+    position: absolute;
+    top: -8%;
+    font-weight: 900;
+    color: #000;
+    -webkit-text-stroke: 2px #fff;
+    font-family: "Robboto", sans-serif;
+}
+
+#footer{
+    overflow: hidden;
+    height: 40vh;
+    width: 100%;
+    background:linear-gradient(to left bottom,#2CA635 0%,#AADC22 80%);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 100px;
+    position: relative;
+    padding: 0 100px;
+}
+#footer>img{
+    position: absolute;
+    left: 0;
+    height: 100%;
+    z-index: 99;
+}
+.f1 img{
+    height: 100%;
+}
+.f1,.f2,.f3,.f4{
+    width: fit-content;
+    position: relative;
+    z-index: 2;
+}
+.f2 h3,.f3 h3{
+    font-size: 27px;
+    white-space: nowrap;
+    color: #000;
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+.f4 h4{
+    font-size: 20px;
+    white-space: nowrap;
+    color: #000;
+    font-weight: 600;
+    line-height: 25px;
+    margin-bottom: 8px;
+}
